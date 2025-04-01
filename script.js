@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
-    let touchStartX = 0;
-    let touchStartY = 0;
 
     slides[0].classList.add('active');
 
@@ -32,31 +30,22 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (e.key === 'ArrowLeft') prevSlide();
     });
 
-    // Handle touch events to allow vertical scrolling but prevent horizontal swipes
-    document.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-    }, { passive: true });
+    // Prevent only horizontal swipes on each slide
+    slides.forEach(slide => {
+        let startX = 0;
+        
+        slide.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
 
-    document.addEventListener('touchmove', (e) => {
-        if (!touchStartX || !touchStartY) {
-            return;
-        }
+        slide.addEventListener('touchmove', (e) => {
+            const currentX = e.touches[0].clientX;
+            const diff = startX - currentX;
 
-        const touchEndX = e.touches[0].clientX;
-        const touchEndY = e.touches[0].clientY;
-
-        const xDiff = touchStartX - touchEndX;
-        const yDiff = touchStartY - touchEndY;
-
-        // If horizontal swipe is greater than vertical swipe, prevent it
-        if (Math.abs(xDiff) > Math.abs(yDiff)) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    document.addEventListener('touchend', () => {
-        touchStartX = null;
-        touchStartY = null;
-    }, { passive: true });
+            // Only prevent horizontal swipes
+            if (Math.abs(diff) > 5) { // Small threshold to detect intentional horizontal swipe
+                e.preventDefault();
+            }
+        }, { passive: false });
+    });
 });
