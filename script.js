@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     slides[0].classList.add('active');
 
@@ -30,12 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (e.key === 'ArrowLeft') prevSlide();
     });
 
-    // Prevent horizontal swipe navigation
+    // Handle touch events to allow vertical scrolling but prevent horizontal swipes
     document.addEventListener('touchstart', (e) => {
-        e.preventDefault();
-    }, { passive: false });
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
 
     document.addEventListener('touchmove', (e) => {
-        e.preventDefault();
+        if (!touchStartX || !touchStartY) {
+            return;
+        }
+
+        const touchEndX = e.touches[0].clientX;
+        const touchEndY = e.touches[0].clientY;
+
+        const xDiff = touchStartX - touchEndX;
+        const yDiff = touchStartY - touchEndY;
+
+        // If horizontal swipe is greater than vertical swipe, prevent it
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+            e.preventDefault();
+        }
     }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+        touchStartX = null;
+        touchStartY = null;
+    }, { passive: true });
 });
