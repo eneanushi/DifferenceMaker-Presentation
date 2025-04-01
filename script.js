@@ -30,16 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (e.key === 'ArrowLeft') prevSlide();
     });
 
-    // Handle touch events for horizontal swipes only
+    // Handle touch events with improved iOS compatibility
     slides.forEach(slide => {
         let startX = 0;
         let startY = 0;
         let initialTouchTime = 0;
+        let isHorizontalSwipe = false;
         
         slide.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             startY = e.touches[0].clientY;
             initialTouchTime = Date.now();
+            isHorizontalSwipe = false;
         }, { passive: true });
 
         slide.addEventListener('touchmove', (e) => {
@@ -49,9 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const diffY = startY - currentY;
             const elapsedTime = Date.now() - initialTouchTime;
 
-            // Only prevent default if it's a horizontal swipe (|diffX| > |diffY|)
-            // and after a small threshold to ensure it's intentional
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 5 && elapsedTime < 200) {
+            // Determine if this is a horizontal swipe
+            // Must meet all criteria:
+            // 1. Horizontal movement is significantly larger than vertical (1.5x)
+            // 2. Horizontal movement exceeds minimum threshold (10px)
+            // 3. Movement happened within timing window (300ms)
+            // 4. Total movement is not too large (prevents accidental swipes)
+            if (Math.abs(diffX) > Math.abs(diffY) * 1.5 && 
+                Math.abs(diffX) > 10 && 
+                Math.abs(diffX) < 150 && 
+                elapsedTime < 300) {
+                
+                isHorizontalSwipe = true;
                 e.preventDefault();
             }
         }, { passive: false });
@@ -61,8 +72,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const diffY = startY - e.changedTouches[0].clientY;
             const elapsedTime = Date.now() - initialTouchTime;
 
-            // Only handle horizontal swipes
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50 && elapsedTime < 200) {
+            // Only trigger slide change if:
+            // 1. It was determined to be a horizontal swipe
+            // 2. The movement is significant enough (50px)
+            // 3. The gesture was quick enough (300ms)
+            // 4. Horizontal movement is clearly dominant
+            if (isHorizontalSwipe && 
+                Math.abs(diffX) > 50 && 
+                Math.abs(diffX) > Math.abs(diffY) * 1.5 && 
+                elapsedTime < 300) {
+                
                 if (diffX > 0) {
                     nextSlide();
                 } else {
