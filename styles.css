@@ -529,22 +529,27 @@ body {
     }
 
     body {
-        overflow: hidden;
-        position: fixed;
+        overflow-y: auto;
+        position: static;
         width: 100%;
-        height: 100%;
+        height: auto;
+        min-height: 100%;
     }
 
     .presentation-container {
         height: 100dvh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .slide {
+        position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior-y: contain;
         padding: 4rem 0.75rem 6rem;
-        height: 100dvh;
+        height: auto;
+        min-height: 100dvh;
     }
 
     .slide-header {
@@ -565,6 +570,7 @@ body {
         width: 100%;
         margin: 4rem auto 2rem;
         padding: 0.75rem;
+        overflow-y: visible;
     }
 
     .problem-grid,
