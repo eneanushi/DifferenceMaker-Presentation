@@ -532,16 +532,15 @@ body {
     body {
         position: relative;
         overflow-y: auto;
-        display: block;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
+        height: auto;
+        min-height: 100vh;
     }
 
     .presentation-container {
         position: relative;
-        height: 100%;
-        overflow: hidden;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
     }
 
     .slide {
@@ -549,17 +548,19 @@ body {
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
-        height: 100%;
+        height: auto;
+        min-height: 100vh;
         opacity: 0;
         pointer-events: none;
-        overflow-y: auto;
+        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
+        padding-bottom: 6rem;
     }
 
     .slide.active {
         opacity: 1;
         pointer-events: auto;
+        position: relative;
     }
 
     .slide-header {
@@ -577,11 +578,10 @@ body {
     .slide-content {
         padding-top: calc(4rem + 1rem);
         padding-bottom: 6rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
         margin: 0;
         width: 100%;
-        min-height: 100%;
+        height: auto;
+        min-height: calc(100vh - 4rem);
         box-sizing: border-box;
     }
 
