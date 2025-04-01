@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
-    let touchStartX = 0;
-    let touchMoveX = 0;
 
     slides[0].classList.add('active');
 
@@ -30,25 +28,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') nextSlide();
         else if (e.key === 'ArrowLeft') prevSlide();
-    });
-
-    document.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener('touchmove', (e) => {
-        touchMoveX = e.changedTouches[0].screenX;
-        e.preventDefault();
-    });
-
-    document.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        const swipeThreshold = 50;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) nextSlide();
-            else prevSlide();
-        }
     });
 });
