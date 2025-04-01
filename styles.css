@@ -548,14 +548,11 @@ body {
 
     .slide {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100vh;
+        height: auto;
         min-height: 100vh;
-        opacity: 0;
-        pointer-events: none;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .slide.active {
@@ -577,22 +574,20 @@ body {
     }
 
     .slide-content {
-        margin: 4rem auto 0;
+        flex: 1;
+        margin: 4rem auto 2rem;
         padding: 1rem;
-        min-height: calc(100vh - 6rem);
-        width: 100%;
+        min-height: unset;
         height: auto;
-        box-sizing: border-box;
     }
 
     .navigation {
         position: fixed;
-        bottom: 2rem;
+        bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
-        pointer-events: auto;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.8);
         padding: 0.5rem;
         border-radius: 25px;
     }
@@ -723,15 +718,22 @@ body {
     }
 
     .page-footer {
-        position: sticky;
-        bottom: 0;
+        position: relative;
+        width: 100%;
+        height: 2rem;
+        margin-top: 2rem;
+        background: linear-gradient(to bottom, transparent, rgba(176, 38, 255, 0.1));
+    }
+
+    .thank-you {
+        margin-bottom: 2rem;
     }
 }
 
 /* Extra small devices */
 @media screen and (max-width: 380px) {
-    .slide {
-        padding-top: 3.5rem;
+    .slide-content {
+        margin-top: 3.5rem;
     }
 
     .slide-header {
@@ -754,6 +756,10 @@ body {
 
     .timeline-milestone span {
         font-size: 10px;
+    }
+
+    .page-footer {
+        margin-top: 1.5rem;
     }
 }
 
@@ -902,15 +908,4 @@ body {
     .thank-you p {
         font-size: 20pt;
     }
-}
-
-.page-footer {
-    width: 100%;
-    height: 2rem;
-    background: linear-gradient(to bottom, transparent, rgba(176, 38, 255, 0.1));
-    margin-top: auto;
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
