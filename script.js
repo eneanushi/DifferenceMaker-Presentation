@@ -29,4 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') nextSlide();
         else if (e.key === 'ArrowLeft') prevSlide();
     });
+
+    // Prevent horizontal swipe navigation
+    document.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+    }, { passive: false });
 });
