@@ -16,22 +16,31 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     background: #000;
     color: var(--text-light);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .presentation-container {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height */
     position: relative;
     background: #000;
     overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .slide {
@@ -44,6 +53,10 @@ body {
     background: linear-gradient(135deg, rgba(0,0,0,0.95), rgba(0,0,0,0.98));
     border: 2px solid rgba(176, 38, 255, 0.2);
     box-shadow: var(--neon-glow);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .slide::before {
@@ -66,6 +79,22 @@ body {
     position: relative;
     z-index: 1;
     padding-top: 8rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(176, 38, 255, 0.5) rgba(0, 0, 0, 0.3);
+}
+
+.slide-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.slide-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.slide-content::-webkit-scrollbar-thumb {
+    background: rgba(176, 38, 255, 0.5);
+    border-radius: 4px;
 }
 
 .uml-logo {
@@ -106,6 +135,9 @@ body {
     -webkit-text-fill-color: transparent;
     text-shadow: var(--neon-glow);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .team-member {
@@ -119,6 +151,9 @@ body {
     color: var(--text-light);
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .team-member p {
@@ -181,6 +216,9 @@ body {
     margin-bottom: 3rem;
     text-shadow: var(--neon-glow);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .problem-grid {
@@ -212,6 +250,9 @@ body {
     color: var(--text-light);
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .problem-item p {
@@ -219,6 +260,9 @@ body {
     font-size: 18pt;
     color: var(--text-gray);
     line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .problem-item.left {
@@ -253,6 +297,9 @@ body {
                  0 0 20px rgba(255, 255, 255, 0.3),
                  0 0 30px rgba(255, 255, 255, 0.1);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .opportunity-grid {
@@ -284,6 +331,9 @@ body {
     color: var(--text-light);
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .opportunity-item p {
@@ -292,6 +342,9 @@ body {
     color: var(--text-gray);
     line-height: 1.4;
     margin-bottom: 0.5rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .opportunity-item.left {
@@ -404,6 +457,9 @@ body {
                  0 0 20px rgba(255, 255, 255, 0.3),
                  0 0 30px rgba(255, 255, 255, 0.1);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .solution-grid {
@@ -441,6 +497,9 @@ body {
     color: var(--text-light);
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .solution-item p {
@@ -448,6 +507,9 @@ body {
     font-size: 18pt;
     color: var(--text-gray);
     line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .solution-item.left {
@@ -670,6 +732,9 @@ body {
     margin-bottom: 3rem;
     text-shadow: 0 0 10px rgba(0, 48, 135, 0.3);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .appendix-grid {
@@ -698,6 +763,9 @@ body {
     font-weight: 700;
     color: var(--uml-blue);
     margin-bottom: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .appendix-item ul {
@@ -711,6 +779,9 @@ body {
     color: #333;
     margin-bottom: 0.75rem;
     line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .appendix-item.left {
@@ -749,6 +820,9 @@ body {
     margin-bottom: 3rem;
     text-shadow: var(--neon-glow);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .contact-info {
@@ -852,6 +926,9 @@ body {
     margin-bottom: 3rem;
     text-shadow: var(--neon-glow);
     padding-top: 1rem;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .business-grid {
@@ -884,6 +961,9 @@ body {
     color: var(--text-light);
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .business-item ul {
@@ -897,6 +977,9 @@ body {
     color: var(--text-gray);
     margin-bottom: 0.75rem;
     line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    -webkit-text-stroke: 0.45px;
+    letter-spacing: -0.02em;
 }
 
 .business-item.left {
@@ -970,3 +1053,192 @@ body {
 #slide5::before {
     opacity: 0.05;
 }
+
+/* Cross-browser and platform optimizations */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Windows-specific font rendering */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    body {
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust base container */
+    .presentation-container {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        overflow: hidden;
+    }
+
+    .slide {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .slide-content {
+        padding: 4rem 1rem 2rem;
+        width: calc(100% - 2rem);
+        max-width: 92%;
+        margin: 0 auto;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+    }
+
+    /* Ensure all content is scrollable */
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid,
+    .solution-grid {
+        height: auto;
+        overflow: visible;
+        margin-bottom: 2rem;
+    }
+
+    /* Navigation adjustments */
+    .navigation {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 1rem;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    /* Ensure content doesn't get hidden behind fixed navigation */
+    .slide:last-child .slide-content {
+        padding-bottom: 80px;
+    }
+
+    /* Phone mockup adjustments */
+    .phone-frame {
+        max-height: 70vh;
+        width: auto;
+        margin: 0 auto;
+    }
+
+    /* Ensure all grids are properly scrollable */
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Ensure proper touch handling */
+    .nav-btn,
+    .contact-button {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Fix for Windows mobile edge cases */
+    @supports (-ms-ime-align: auto) {
+        .slide-content {
+            transform: none;
+            -webkit-transform: none;
+        }
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 380px) {
+    .slide-content {
+        width: 95%;
+        padding-top: 3.5rem;
+    }
+
+    /* Ensure proper spacing for small screens */
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid {
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .slide {
+        overflow-y: auto;
+        height: 100%;
+    }
+
+    .slide-content {
+        padding-top: 3rem;
+        min-height: calc(100% + 60px);
+    }
+
+    /* Adjust grid layout for landscape */
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .slide {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix for iOS momentum scrolling */
+    .slide-content {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* High refresh rate displays */
+@media screen and (min-resolution: 2dppx) {
+    .slide {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+}
+
+/* Windows high-contrast mode */
+@media screen and (-ms-high-contrast: active) {
+    .slide,
+    .navigation,
+    .problem-item,
+    .opportunity-item,
+    .solution-item,
+    .business-item {
+        border: 2px solid currentColor;
+    }
+} 
