@@ -20,6 +20,7 @@ UML All Transfer Documents/
 # Other unnecessary files
 *.xlsx
 *.png
+!UMass-Lowell_logo.svg.png
 *.pptx
 *.docx
 
