@@ -136,7 +136,7 @@ body {
 
 .project-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(28pt, 5vw, 60pt);
+    font-size: 60pt;
     font-weight: 700;
     text-align: center;
     margin-bottom: 2rem;
@@ -148,10 +148,6 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-text-stroke: 0.45px;
     letter-spacing: -0.02em;
-    line-height: 1.2;
-    padding: 0 1rem;
-    word-wrap: break-word;
-    hyphens: auto;
 }
 
 .team-member {
@@ -712,10 +708,8 @@ body {
     }
 
     .project-title {
-        font-size: 24pt;
-        margin: 0.5rem 0 1.5rem;
-        padding: 0 0.5rem;
-        -webkit-text-stroke: 0.25px;
+        font-size: clamp(28px, 6vw, 32px);
+        margin-top: 1rem;
     }
 
     .team-member h2 {
@@ -746,9 +740,7 @@ body {
     }
 
     .project-title {
-        font-size: 20pt;
-        margin: 0.5rem 0 1rem;
-        -webkit-text-stroke: 0.2px;
+        font-size: clamp(20px, 5vw, 28px);
     }
 
     .team-member h2 {
