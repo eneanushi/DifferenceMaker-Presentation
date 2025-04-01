@@ -969,4 +969,241 @@ body {
 
 #slide5::before {
     opacity: 0.05;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust base container */
+    .presentation-container {
+        height: 100svh; /* Use small viewport height for mobile */
+    }
+
+    .slide-content {
+        padding-top: 4rem;
+        width: 95%;
+        transform: scale(0.9);
+    }
+
+    /* General adjustments */
+    .project-title {
+        font-size: 24pt;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .team-member h2 {
+        font-size: 20pt;
+    }
+
+    .team-member p {
+        font-size: 16pt;
+    }
+
+    /* Grid layouts with smaller spacing */
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+        margin-top: 1rem;
+    }
+
+    /* Reduce padding and margins */
+    .problem-item,
+    .opportunity-item,
+    .solution-item,
+    .business-item {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Headers */
+    .problem-header,
+    .opportunity-header,
+    .solution-header,
+    .business-header,
+    .appendix-header,
+    .questions-header {
+        font-size: 22pt;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Items */
+    .problem-item h3,
+    .opportunity-item h3,
+    .solution-item h3,
+    .business-item h3 {
+        font-size: 18pt;
+        margin-bottom: 0.5rem;
+    }
+
+    .problem-item p,
+    .opportunity-item p,
+    .solution-item p,
+    .business-item li {
+        font-size: 14pt;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+    }
+
+    /* Phone mockup */
+    .phone-frame {
+        width: 80vw;
+        max-width: 3.5in;
+        height: auto;
+        aspect-ratio: 1/2;
+        padding: 0.75rem;
+    }
+
+    .chat-bubble {
+        font-size: 12pt;
+        padding: 0.5rem;
+    }
+
+    .chat-options li {
+        font-size: 11pt;
+        padding: 0.3rem;
+    }
+
+    /* Logo and branding */
+    .uml-logo {
+        width: 0.6in;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+
+    .event-branding {
+        font-size: 14pt;
+        padding: 0.25rem 0.5rem;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    /* Stats circles */
+    .stats-circles {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        transform: scale(0.8);
+        transform-origin: right center;
+    }
+
+    .stat-circle {
+        width: 1in;
+        height: 1in;
+        font-size: 12pt;
+    }
+
+    /* Contact section */
+    .contact-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .contact-button {
+        font-size: 14pt;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Navigation */
+    .navigation {
+        bottom: 0.5rem;
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    /* Icons */
+    .icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 380px) {
+    .slide-content {
+        transform: scale(0.85);
+    }
+
+    .project-title {
+        font-size: 20pt;
+    }
+
+    .problem-header,
+    .opportunity-header,
+    .solution-header,
+    .business-header,
+    .appendix-header,
+    .questions-header {
+        font-size: 20pt;
+    }
+
+    .problem-item h3,
+    .opportunity-item h3,
+    .solution-item h3,
+    .business-item h3 {
+        font-size: 16pt;
+    }
+
+    .problem-item p,
+    .opportunity-item p,
+    .solution-item p,
+    .business-item li {
+        font-size: 13pt;
+    }
+
+    .uml-logo {
+        width: 0.5in;
+    }
+
+    .event-branding {
+        font-size: 12pt;
+    }
+}
+
+/* Landscape mode */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .slide-content {
+        padding-top: 3rem;
+        transform: scale(0.8);
+    }
+
+    .problem-grid,
+    .opportunity-grid,
+    .business-grid,
+    .appendix-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .phone-frame {
+        height: 60vh;
+        width: auto;
+    }
+
+    .uml-logo {
+        width: 0.5in;
+    }
+
+    .event-branding {
+        font-size: 12pt;
+    }
+}
+
+/* Fix for iPhone notch */
+@supports (padding: max(0px)) {
+    .presentation-container {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
 } 
