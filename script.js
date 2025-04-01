@@ -3,22 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
     let currentSlide = 0;
+    let touchStartX = 0;
+    let touchMoveX = 0;
 
-    // Initialize the first slide
     slides[0].classList.add('active');
 
-    // Function to update slide visibility
     const updateSlides = () => {
         slides.forEach((slide, index) => {
-            if (index === currentSlide) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
+            slide.classList.toggle('active', index === currentSlide);
         });
     };
 
-    // Navigation functions
     const nextSlide = () => {
         currentSlide = (currentSlide + 1) % slides.length;
         updateSlides();
@@ -29,42 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlides();
     };
 
-    // Event listeners
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            nextSlide();
-        } else if (e.key === 'ArrowLeft') {
-            prevSlide();
-        }
+        if (e.key === 'ArrowRight') nextSlide();
+        else if (e.key === 'ArrowLeft') prevSlide();
     });
-
-    // Touch navigation for mobile devices
-    let touchStartX = 0;
-    let touchEndX = 0;
 
     document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     });
 
-    document.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
+    document.addEventListener('touchmove', (e) => {
+        touchMoveX = e.changedTouches[0].screenX;
+        e.preventDefault();
     });
 
-    const handleSwipe = () => {
-        const swipeThreshold = 50;
+    document.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
+        const swipeThreshold = 50;
 
         if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                prevSlide();
-            }
+            if (diff > 0) nextSlide();
+            else prevSlide();
         }
-    };
-}); 
+    });
+});
