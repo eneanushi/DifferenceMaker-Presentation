@@ -1,0 +1,33 @@
+# Personal and sensitive files
+Internship Applications/
+Job Application Docs/
+Latest Resume/
+Mortgage Documents Ardit/
+family_docs/
+UML All Transfer Documents/
+*Resume*.pdf
+*Resume*.docx
+
+# Temporary files
+~$*
+.DS_Store
+.localized
+
+# Build and binary files
+*.jar
+*.class
+
+# Other unnecessary files
+*.xlsx
+*.png
+*.pptx
+*.docx
+
+# Keep only the project-related directories
+!web application/
+!automation_testing/
+!Spectra/
+
+*~
+*.swp
+node_modules/ 
