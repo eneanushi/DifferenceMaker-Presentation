@@ -532,28 +532,33 @@ body {
         position: relative;
         overflow-y: auto;
         display: block;
-        height: auto;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
     }
 
     .presentation-container {
         position: relative;
-        height: auto;
-        min-height: 100vh;
-        overflow-y: visible;
+        height: 100%;
+        overflow: hidden;
     }
 
     .slide {
-        position: relative;
-        height: auto;
-        min-height: 100vh;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        opacity: 0;
+        pointer-events: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .slide.active {
         opacity: 1;
-        position: relative;
+        pointer-events: auto;
     }
 
     .slide-header {
@@ -575,10 +580,8 @@ body {
         padding-right: 1rem;
         margin: 0;
         width: 100%;
-        flex: 1;
-        overflow-y: visible;
-        position: relative;
-        z-index: 1;
+        min-height: 100%;
+        box-sizing: border-box;
     }
 
     .navigation {
@@ -587,6 +590,7 @@ body {
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
+        pointer-events: auto;
     }
 
     .uml-logo {
