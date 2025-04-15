@@ -1606,6 +1606,15 @@ body {
     overflow: hidden;
 }
 
+.business-item .tier-type {
+    font-family: 'Lato', sans-serif;
+    font-size: 16pt;
+    font-weight: 700;
+    color: #00ffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
 .business-item h3 {
     font-family: 'Lato', sans-serif;
     font-size: 20pt;
@@ -1616,11 +1625,11 @@ body {
                  0 0 20px rgba(176, 38, 255, 0.3),
                  0 0 30px rgba(176, 38, 255, 0.2);
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
     animation: text-glow 2s ease-in-out infinite alternate;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
 }
 
 .business-phase {
@@ -1672,6 +1681,10 @@ body {
         min-height: auto;
     }
 
+    .business-item .tier-type {
+        font-size: 14pt;
+    }
+
     .business-item h3 {
         font-size: 18pt;
         margin-bottom: 1rem;
@@ -1696,6 +1709,10 @@ body {
 
 /* Extra small devices */
 @media screen and (max-width: 380px) {
+    .business-item .tier-type {
+        font-size: 13pt;
+    }
+
     .business-item h3 {
         font-size: 16pt;
     }
