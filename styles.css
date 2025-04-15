@@ -307,18 +307,28 @@ body {
 }
 
 .problem-item p {
-    font-size: 14pt;
+    font-size: 16pt;
     line-height: 1.4;
     color: var(--text-light);
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+}
+
+.problem-item p::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+    font-size: 1.2em;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .problem-item .icon {
     font-size: 24px;
     margin-bottom: 1rem;
-    color: var(--neon-purple);
-    text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     animation: icon-glow 2s ease-in-out infinite alternate;
 }
 
@@ -814,10 +824,10 @@ body {
     }
 
     .problem-item p {
-        font-size: clamp(14px, 3.5vw, 16px);
+        font-size: clamp(16px, 3.5vw, 18px);
         line-height: 1.4;
         margin: 0;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0 0.5rem 1.2rem;
     }
 
     .problem-item .icon {
