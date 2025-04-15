@@ -1793,3 +1793,315 @@ body {
         font-size: 13pt;
     }
 }
+
+.appendix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+    margin-top: 2rem;
+    align-items: stretch;
+    position: relative;
+}
+
+.appendix-item {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: var(--neon-glow);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(176, 38, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.appendix-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--neon-purple), var(--uml-blue));
+    opacity: 0.7;
+}
+
+.appendix-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--uml-blue), var(--neon-purple));
+    opacity: 0.7;
+}
+
+.appendix-item h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(176, 38, 255, 0.3),
+                 0 0 30px rgba(176, 38, 255, 0.2);
+    position: relative;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    animation: text-glow 2s ease-in-out infinite alternate;
+    padding: 0.5rem 0;
+    line-height: 1.3;
+}
+
+.appendix-item ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.appendix-item ul li {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 14pt;
+    line-height: 1.4;
+    color: var(--text-light);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.appendix-item ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #00ffff;
+    font-size: 1.2em;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.icon-wrapper {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -0.5rem;
+}
+
+.appendix-item ul li i {
+    color: #00ffff;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.appendix-item ul li span {
+    flex: 1;
+    line-height: 1.4;
+}
+
+@media screen and (max-width: 768px) {
+    .appendix-item ul li {
+        padding-left: 2rem;
+        font-size: 13pt;
+        gap: 0.6rem;
+    }
+
+    .icon-wrapper {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .appendix-item ul li i {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .appendix-item ul li {
+        padding-left: 1.8rem;
+        font-size: 12pt;
+        gap: 0.5rem;
+    }
+
+    .icon-wrapper {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .appendix-item ul li i {
+        font-size: 0.9em;
+    }
+}
+
+.book-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    animation: float 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .appendix-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .appendix-item {
+        padding: 1.2rem;
+        min-height: auto;
+    }
+
+    .appendix-item h3 {
+        font-size: 16pt;
+    }
+
+    .appendix-item ul li {
+        padding-left: 2rem;
+        font-size: 13pt;
+    }
+
+    .appendix-item ul li i {
+        font-size: 1.1em;
+    }
+
+    .book-icon {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .appendix-item {
+        padding: 1rem;
+    }
+
+    .appendix-item h3 {
+        font-size: 15pt;
+    }
+
+    .appendix-item ul li {
+        padding-left: 1.8rem;
+        font-size: 12pt;
+    }
+
+    .appendix-item ul li i {
+        font-size: 1em;
+    }
+
+    .book-icon {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.2rem;
+    }
+}
+
+.competitor-analysis {
+    margin-top: 2rem;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.analysis-content {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.analysis-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00ffff, var(--neon-purple));
+    opacity: 0.7;
+}
+
+.analysis-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--neon-purple), #00ffff);
+    opacity: 0.7;
+}
+
+.analysis-content i {
+    color: #00ffff;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.analysis-content p {
+    color: var(--text-light);
+    font-size: 14pt;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .competitor-analysis {
+        padding: 0 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .analysis-content {
+        padding: 1.2rem;
+    }
+
+    .analysis-content i {
+        font-size: 1.3rem;
+    }
+
+    .analysis-content p {
+        font-size: 13pt;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .competitor-analysis {
+        margin-top: 1rem;
+    }
+
+    .analysis-content {
+        padding: 1rem;
+    }
+
+    .analysis-content i {
+        font-size: 1.2rem;
+    }
+
+    .analysis-content p {
+        font-size: 12pt;
+    }
+}
