@@ -111,7 +111,7 @@ body {
     flex: 1;
     width: 100%;
     max-width: 1200px;
-    margin: 5rem auto 0;
+    margin: 4rem auto 0;
     padding: 1rem;
     position: relative;
     z-index: 1;
@@ -171,7 +171,7 @@ body {
 
 .navigation {
     position: fixed;
-    bottom: 2rem;
+    bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -327,7 +327,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     padding: 0 2rem;
-    margin-top: 1rem;
+    margin-top: -1rem;
 }
 
 .solution-text {
@@ -494,8 +494,8 @@ body {
 }
 
 .phone-frame {
-    width: 4in;
-    height: 8in;
+    width: 3.5in;
+    height: 7in;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 40px;
     padding: 1rem;
@@ -766,7 +766,7 @@ body {
 
     .navigation {
         position: fixed;
-        bottom: 1rem;
+        bottom: 2rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1000;
@@ -833,10 +833,10 @@ body {
     }
 
     .phone-frame {
-        width: min(85vw, 300px);
+        width: min(75vw, 280px);
         height: auto;
         aspect-ratio: 1/2;
-        margin: 1.5rem auto;
+        margin: 0 auto;
     }
 
     .chat-bubble {
@@ -1665,5 +1665,61 @@ body {
     }
     100% {
         transform: translateY(0) scale(1);
+    }
+}
+
+.phone-mockup {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.mockup-caption {
+    width: 40%;
+    text-align: left;
+    padding: 1rem;
+}
+
+.mockup-caption h3 {
+    font-size: 18pt;
+    margin-bottom: 0.5rem;
+}
+
+.mockup-caption p {
+    font-size: 14pt;
+}
+
+@media screen and (max-width: 768px) {
+    .phone-mockup {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .mockup-caption {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mockup-caption h3 {
+        font-size: 20pt;
+    }
+
+    .mockup-caption p {
+        font-size: 14pt;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .mockup-caption h3 {
+        font-size: 18pt;
+    }
+
+    .mockup-caption p {
+        font-size: 13pt;
     }
 }
