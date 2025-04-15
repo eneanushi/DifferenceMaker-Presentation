@@ -1367,65 +1367,42 @@ body {
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
+    .opportunity-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+        margin-top: 1.5rem;
+    }
+
     .opportunity-item {
         padding: 1.5rem;
-        min-height: 250px;
-    }
-
-    .opportunity-item h3 {
-        font-size: 16pt;
-        padding: 0.4rem 0.8rem;
-    }
-
-    .opportunity-item h3::before,
-    .opportunity-item h3::after {
-        width: 15px;
-        height: 15px;
-        box-shadow: 0 0 8px rgba(0, 255, 255, 0.5),
-                    0 0 15px rgba(0, 255, 255, 0.3);
-    }
-
-    .opportunity-item p {
-        font-size: 14pt;
-        padding: 0.8rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .opportunity-item p::before {
-        box-shadow: 0 0 8px rgba(0, 255, 255, 0.5),
-                    0 0 15px rgba(0, 255, 255, 0.3);
+        min-height: auto;
+        margin-bottom: 1rem;
     }
 
     .opportunity-item .icon {
         font-size: 2rem;
-        text-shadow: 0 0 8px rgba(176, 38, 255, 0.5),
-                     0 0 15px rgba(176, 38, 255, 0.3),
-                     0 0 20px rgba(176, 38, 255, 0.2);
+        margin-bottom: 1rem;
     }
 
-    .presentation-image-container {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: 200px;
-        margin: 2rem auto;
+    .opportunity-item h3 {
+        font-size: 18pt;
+        margin-bottom: 1rem;
+        padding: 0.4rem 0.8rem;
     }
 
-    .qr-glow-effect {
-        max-width: 180px;
+    .opportunity-item p {
+        font-size: 16pt;
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
     }
 
-    .scan-message {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin-top: 1rem;
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
+    .stats-circles {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
     }
 
     .stat-circle {
@@ -1441,36 +1418,37 @@ body {
 
 /* Extra small devices */
 @media screen and (max-width: 380px) {
+    .opportunity-grid {
+        gap: 1rem;
+        padding: 0 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .opportunity-item {
+        padding: 1rem;
+    }
+
+    .opportunity-item .icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
     .opportunity-item h3 {
-        font-size: 14pt;
+        font-size: 16pt;
+        margin-bottom: 0.8rem;
         padding: 0.3rem 0.6rem;
     }
 
-    .opportunity-item h3::before,
-    .opportunity-item h3::after {
-        width: 12px;
-        height: 12px;
-        box-shadow: 0 0 6px rgba(0, 255, 255, 0.5),
-                    0 0 12px rgba(0, 255, 255, 0.3);
-    }
-
     .opportunity-item p {
-        font-size: 12pt;
+        font-size: 14pt;
         padding: 0.6rem;
         margin-bottom: 0.6rem;
+        line-height: 1.3;
     }
 
-    .opportunity-item p::before {
-        box-shadow: 0 0 6px rgba(0, 255, 255, 0.5),
-                    0 0 12px rgba(0, 255, 255, 0.3);
-    }
-
-    .presentation-image-container {
-        max-width: 160px;
-    }
-
-    .qr-glow-effect {
-        max-width: 140px;
+    .stats-circles {
+        gap: 0.8rem;
+        margin-top: 1rem;
     }
 
     .stat-circle {
