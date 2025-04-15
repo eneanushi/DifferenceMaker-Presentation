@@ -20,6 +20,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    position: relative;
 }
 
 body {
@@ -29,6 +35,7 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
 }
 
 .presentation-container {
@@ -712,12 +719,14 @@ body {
         height: 100%;
         overflow-y: auto;
         position: relative;
+        -webkit-overflow-scrolling: touch;
     }
 
     .presentation-container {
         height: auto;
         min-height: 100%;
         overflow: visible;
+        -webkit-overflow-scrolling: touch;
     }
 
     .slide {
@@ -727,6 +736,7 @@ body {
         height: auto;
         min-height: 100vh;
         padding-bottom: 4rem;
+        -webkit-overflow-scrolling: touch;
     }
 
     .slide.active {
@@ -751,6 +761,7 @@ body {
         height: auto;
         width: 100%;
         box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
     }
 
     .problem-grid {
@@ -930,6 +941,7 @@ body {
 @media screen and (max-width: 380px) {
     .slide-content {
         padding-top: 4.5rem;
+        padding-bottom: 1.5rem;
     }
 
     .slide-header {
@@ -1495,6 +1507,7 @@ body {
     margin: 0 auto;
 }
 
+/* Mobile styles */
 @media screen and (max-width: 768px) {
     .opportunity-grid {
         grid-template-columns: 1fr;
@@ -1551,7 +1564,8 @@ body {
         margin-top: 1rem;
         padding: 0 0.5rem;
         width: 100%;
-        max-width: 400px;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .opportunity-item .stat-circle {
@@ -1559,6 +1573,7 @@ body {
         height: clamp(90px, 25vw, 110px);
         font-size: clamp(12px, 3vw, 14px);
         padding: 0.5rem;
+        margin: 0;
     }
 
     .opportunity-item ul {
@@ -1616,6 +1631,7 @@ body {
 
     .opportunity-item .stats-circles {
         gap: 0.8rem;
+        padding: 0 0.3rem;
     }
 
     .opportunity-item .stat-circle {
@@ -2158,5 +2174,20 @@ body {
 
     .analysis-content p {
         font-size: 12pt;
+    }
+}
+
+/* Prevent text size adjustment on orientation change */
+@media screen and (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+}
+
+/* Prevent zoom on input focus */
+@media screen and (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px !important;
     }
 }
