@@ -3056,3 +3056,14 @@ body {
         font-size: 10pt;
     }
 }
+
+.qr-access-text {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    color: #00ffff;
+    margin: 1rem 0 1.5rem 0;
+    font-weight: 500;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    position: relative;
+}
