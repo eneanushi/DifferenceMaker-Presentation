@@ -1127,14 +1127,16 @@ body {
 }
 
 .presentation-image-container {
-    position: relative;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin: 2rem auto;
-    width: 200px;
-    z-index: 1;
 }
 
 .qr-glow-effect {
@@ -2496,7 +2498,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1.5rem auto;
+    margin-top: 1.5rem;
     padding: 1.5rem 2rem;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
@@ -2505,7 +2507,8 @@ body {
     animation: quote-glow 2s ease-in-out infinite alternate;
     width: 100%;
     max-width: 800px;
-    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .quote-container::before {
@@ -2600,7 +2603,7 @@ body {
 /* Mobile styles */
 @media screen and (max-width: 768px) {
     .quote-container {
-        margin: 1rem auto;
+        margin-top: 1rem;
         padding: 1.2rem 1.5rem;
         max-width: 90%;
     }
@@ -2616,7 +2619,7 @@ body {
 
 @media screen and (max-width: 380px) {
     .quote-container {
-        margin: 0.8rem auto;
+        margin-top: 0.8rem;
         padding: 1rem 1.2rem;
         max-width: 95%;
     }
@@ -3063,43 +3066,4 @@ body {
     font-weight: 500;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     position: relative;
-}
-
-/* Add a new media query for single monitor view */
-@media screen and (max-width: 1366px) {
-    .quote-container {
-        margin: 1rem auto;
-        padding: 1.2rem 1.5rem;
-    }
-
-    .presentation-image-container {
-        margin: 1.5rem auto;
-    }
-}
-
-/* Update existing mobile media queries */
-@media screen and (max-width: 768px) {
-    .quote-container {
-        margin: 1rem auto;
-        padding: 1.2rem 1.5rem;
-        max-width: 90%;
-    }
-
-    .presentation-image-container {
-        margin: 1.5rem auto;
-        width: 180px;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .quote-container {
-        margin: 0.8rem auto;
-        padding: 1rem 1.2rem;
-        max-width: 95%;
-    }
-
-    .presentation-image-container {
-        margin: 1.2rem auto;
-        width: 160px;
-    }
 }
